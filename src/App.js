@@ -1,23 +1,85 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [temperature, setTemperature] = useState(20);
+  const [humidity, setHumidity] = useState(50);
+
+  const handleTemperatureChange = (event) => {
+    const newTemperature = parseInt(event.target.value);
+    setTemperature(newTemperature);
+  };
+
+  const handleHumidityChange = (event) => {
+    const newHumidity = parseInt(event.target.value);
+    setHumidity(newHumidity);
+  };
+
+  let temperatureEmoji, humidityEmoji;
+
+  if (temperature > 25) {
+    temperatureEmoji = '🔥'; // Too hot
+  } else if (temperature < 10) {
+    temperatureEmoji = '❄️'; // Too cold
+  } else {
+    temperatureEmoji = '🌱'; // Ideal temperature for a plant
+  }
+
+  if (humidity > 60) {
+    humidityEmoji = '💧'; // Too humid
+  } else if (humidity < 30) {
+    humidityEmoji = '🏜️'; // Too dry
+  } else {
+    humidityEmoji = '🌱'; // Ideal humidity for a plant
+  }
+
+  const emojiStyle = {
+    fontSize: '2em', // Adjust the font size here for larger emojis
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/data">Data</a></li>
+        </ul>
+      </nav>
+
+      <h1>Weather Monitoring System</h1>
+      <div className="container">
+        <h2>Weather</h2>
+        <div className="weather-info">
+          <div className="weather-entry">
+            <span>Temperature: {temperature}°C</span>
+            <span style={emojiStyle} role="img" aria-label="Emoji">
+              {temperatureEmoji}
+            </span>
+          </div>
+          <div className="weather-entry">
+            <span>Humidity: {humidity}%</span>
+            <span style={emojiStyle} role="img" aria-label="Emoji">
+              {humidityEmoji}
+            </span>
+          </div>
+        </div>
+
+        {/* Input fields and buttons for temperature and humidity update */}
+        <div className="input-container">
+          <input
+            type="number"
+            value={temperature}
+            onChange={handleTemperatureChange}
+            placeholder="Temperature"
+          />
+          <input
+            type="number"
+            value={humidity}
+            onChange={handleHumidityChange}
+            placeholder="Humidity"
+          />
+        </div>
+      </div>
     </div>
   );
 }
