@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
+  
+  var data = [];
+
+  
   const [temperature, setTemperature] = useState(20);
   const [humidity, setHumidity] = useState(50);
 
@@ -14,6 +20,29 @@ function App() {
     const newHumidity = parseInt(event.target.value);
     setHumidity(newHumidity);
   };
+
+  const loadDataFromTable =  () => {
+
+    axios
+      .get('http://172.17.29.171:5000/api/temperature')
+      .then((response) => {
+        if (response.status == 200) {
+
+          const tempData = response.data;
+          data = tempData;
+
+        
+          console.log(response);
+        }
+      })
+      .catch((error) => {
+      })
+  }
+
+  useEffect(()=>{
+    console.log("Promise is being made")
+    loadDataFromTable();
+  },[])
 
   let temperatureEmoji, humidityEmoji;
 
