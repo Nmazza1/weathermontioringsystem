@@ -46,9 +46,9 @@ function App() {
 
   let temperatureEmoji, humidityEmoji;
 
-  if (temperature > 25) {
+  if (temperature > 24) {
     temperatureEmoji = '🔥'; // Too hot
-  } else if (temperature < 10) {
+  } else if (temperature < 18) {
     temperatureEmoji = '❄️'; // Too cold
   } else {
     temperatureEmoji = '🌱'; // Ideal temperature for a plant
@@ -56,7 +56,7 @@ function App() {
 
   if (humidity > 60) {
     humidityEmoji = '💧'; // Too humid
-  } else if (humidity < 30) {
+  } else if (humidity < 40) {
     humidityEmoji = '🏜️'; // Too dry
   } else {
     humidityEmoji = '🌱'; // Ideal humidity for a plant
