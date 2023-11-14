@@ -10,6 +10,8 @@ function App() {
   
   const [temperature, setTemperature] = useState(20);
   const [humidity, setHumidity] = useState(50);
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
 
   const handleTemperatureChange = (event) => {
     const newTemperature = parseInt(event.target.value);
@@ -44,6 +46,15 @@ function App() {
     loadDataFromTable();
   },[])
 
+  useEffect(() => {
+ const timer = setInterval(() => {
+   setCurrentDateTime(new Date());
+ }, 1000);
+
+ return () => clearInterval(timer);
+}, []);
+
+
   let temperatureEmoji, humidityEmoji;
 
   if (temperature > 24) {
@@ -77,16 +88,17 @@ function App() {
 
       <h1>Weather Monitoring System</h1>
       <div className="container">
-        <h2>Weather</h2>
+        <h2>Current Weather</h2>
+        <div>Date and Time: <b>{currentDateTime.toLocaleString()}</b></div>
         <div className="weather-info">
           <div className="weather-entry">
-            <span>Temperature: {temperature}°C</span>
+            <span>Temperature: <b>{temperature}°C</b></span>
             <span style={emojiStyle} role="img" aria-label="Emoji">
               {temperatureEmoji}
             </span>
           </div>
           <div className="weather-entry">
-            <span>Humidity: {humidity}%</span>
+            <span>Humidity: <b>{humidity}%</b></span>
             <span style={emojiStyle} role="img" aria-label="Emoji">
               {humidityEmoji}
             </span>
