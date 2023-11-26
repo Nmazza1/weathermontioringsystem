@@ -7,14 +7,17 @@ function Data() {
 
   const loadDataFromTable = () => {
     axios
-      .get('http://172.17.29.171:5000/api/temperature')
+      .get('http://127.0.0.1:5000/api/temperature')
       .then((response) => {
         if (response.status === 200) {
-          setData(response.data);
-          console.log(response);
+          const jsonData = JSON.parse(response.data);
+          console.log(jsonData); // Log the parsed data
+          setData(jsonData);
         }
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   };
 
   useEffect(() => {
@@ -49,11 +52,12 @@ function Data() {
               </tr>
             </thead>
             <tbody>
-              {data.map((item, index) => (
+              {Array.isArray(data) && data.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.date}</td>
-                  <td>{item.time}</td>
-                  <td>{item.temperature}</td>
+                  <td>{item.timestamp}</td>
+                  {/* Assuming that the property names in the JSON match the table headers */}
+                  <td>{item.timestamp}</td>
+                  <td>{item.temp}</td>
                   <td>{item.humidity}</td>
                 </tr>
               ))}
