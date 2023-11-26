@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58aba3e1-b80d-4b8d-b179-224557fecd84" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,9 +45,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "MJB-Milestone2",
+    "git-widget-placeholder": "APIDataTable",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Minim/Documents/GitHub/WeatherMonitoringSystemBackend",
+    "last_opened_file_path": "C:/Users/Minim/Documents/GitHub/weathermontioringsystem",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,6 +70,7 @@
       <workItem from="1699981730158" duration="2288000" />
       <workItem from="1700958515620" duration="20000" />
       <workItem from="1700958780563" duration="3122000" />
+      <workItem from="1700965048522" duration="303000" />
     </task>
     <servers />
   </component>

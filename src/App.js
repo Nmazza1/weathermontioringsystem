@@ -39,7 +39,7 @@ function App() {
 
  const loadDataFromTable = () => {
   axios
-    .get('http://172.17.29.171:5000/api/temperature')
+    .get('http://127.0.0.1:5000/api/temperature')
     .then((response) => {
       if (response.status == 200) {
         const tempData = response.data;
@@ -136,6 +136,9 @@ function App() {
         />
       </div>
     </div>
+      <footer className="footer">
+        <p>&copy; BMV IOT2, 2023</p>
+      </footer>
   </div>
  );
 }
