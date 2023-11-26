@@ -30,7 +30,6 @@ function App() {
 
           const tempData = response.data;
           data = tempData;
-
         
           console.log(response);
         }
@@ -109,6 +108,10 @@ function App() {
           />
         </div>
       </div>
+
+      <footer className="footer">
+        <p>&copy; BMV IOT2, 2023</p>
+      </footer>
     </div>
   );
 }

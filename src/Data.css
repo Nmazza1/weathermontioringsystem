@@ -11,9 +11,16 @@ body {
 }
 
 /* Style the navigation bar */
-nav {
+nav, footer {
   background-color: #282c34;
   padding: 15px 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
 nav ul {

@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Data.css';
 
 function Data() {
-  var data = [];
+  const [data, setData] = useState([]);
 
   const loadDataFromTable = () => {
     axios
       .get('http://172.17.29.171:5000/api/temperature')
       .then((response) => {
         if (response.status === 200) {
-          const tempData = response.data;
-          data = tempData;
+          setData(response.data);
           console.log(response);
         }
       })
@@ -40,13 +39,32 @@ function Data() {
       <div className="container">
         <h2>Weather Data</h2>
         <div className="weather-info">
-          <div>
-            <li>
-              {/* Enter Table Data Here */}
-            </li>
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.date}</td>
+                  <td>{item.time}</td>
+                  <td>{item.temperature}</td>
+                  <td>{item.humidity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
+
+      <footer className="footer">
+        <p>&copy; BMV IOT2, 2023</p>
+      </footer>
     </div>
   );
 }
