@@ -55,21 +55,21 @@ function App() {
   loadDataFromTable();
  },[])
 
- if (!isLoggedIn) {
+if (!isLoggedIn) {
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <label className="login-label">
         Username:
-        <input type="text" value={username} onChange={handleUsernameChange} />
+        <input className="login-input" type="text" value={username} onChange={handleUsernameChange} />
       </label>
-      <label>
+      <label className="login-label">
         Password:
-        <input type="password" value={password} onChange={handlePasswordChange} />
+        <input className="login-input" type="password" value={password} onChange={handlePasswordChange} />
       </label>
-      <input type="submit" value="Submit" />
+      <input className="login-submit-button" type="submit" value="Submit" />
     </form>
   );
- }
+}
 
  let temperatureEmoji, humidityEmoji;
 
