@@ -57,9 +57,6 @@ const loadDataFromTable = () => {
     });
 };
 
-
-
-
   useEffect(() => {
     loadDataFromTable();
   }, []);
@@ -110,6 +107,21 @@ const loadDataFromTable = () => {
           <li><a href="/data">Data</a></li>
         </ul>
       </nav>
+if (!isLoggedIn) {
+  return (
+    <form className="login-form" onSubmit={handleSubmit}>
+      <label className="login-label">
+        Username:
+        <input className="login-input" type="text" value={username} onChange={handleUsernameChange} />
+      </label>
+      <label className="login-label">
+        Password:
+        <input className="login-input" type="password" value={password} onChange={handlePasswordChange} />
+      </label>
+      <input className="login-submit-button" type="submit" value="Submit" />
+    </form>
+  );
+}
 
       <h1>Weather Monitoring System</h1>
       <div className="container">
