@@ -46,7 +46,6 @@ function Data() {
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Time</th>
                 <th>Temperature</th>
                 <th>Humidity</th>
               </tr>
@@ -55,9 +54,8 @@ function Data() {
               {Array.isArray(data) && data.map((item, index) => (
                 <tr key={index}>
                   <td>{item.timestamp}</td>
-                  <td>{item.timestamp}</td>
-                  <td>{item.temp}</td>
-                  <td>{item.humidity}</td>
+                  <td>{item.temp}°C</td>
+                  <td>{item.humidity}%</td>
                 </tr>
               ))}
             </tbody>
